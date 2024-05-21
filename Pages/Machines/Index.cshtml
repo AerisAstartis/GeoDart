@@ -1,0 +1,181 @@
+﻿@page
+@model GeoDart.Pages.Machines.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Сводка</h1>
+@*-------------------*@
+<style>
+
+    .tab {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tab-content {
+        display: none;
+    }
+
+        .tab-content:target {
+            display: block;
+        }
+
+    .tab-nav {
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #dee2e6;
+        margin-bottom: 1rem;
+        order: -1;
+    }
+
+    .tab-link {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #0d6efd;
+        text-decoration: none;
+        background: 0 0;
+        border: 1px solid transparent;
+        margin-bottom: -1px;
+        border-top-left-radius: 0.375rem;
+        border-top-right-radius: 0.375rem;
+        -webkit-appearance: button;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    }
+
+    #content-1:target ~ .tab-nav > [href="#content-1"],
+    #content-2:target ~ .tab-nav > [href="#content-2"],
+    #content-3:target ~ .tab-nav > [href="#content-3"] {
+        color: #000;
+        background-color: #fff;
+        border-color: #dee2e6 #dee2e6 #fff;
+        cursor: default;
+    }
+</style>
+
+<div class="container">
+    <div class="tab">
+        <div class="tab-nav">
+            @foreach (var item in Model.Machine)
+            {
+                <a class="tab-link" href="#@Html.DisplayFor(modelItem => item.Name)"> @Html.DisplayFor(modelItem => item.Name)</a>
+            }
+        </div>
+        @foreach (var item in Model.Machine)
+        {
+            <div class="tab-content" id="@Html.DisplayFor(modelItem => item.Name)">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Заказчик
+                            </th>
+                            <th>
+                                Подрядчик
+                            </th>
+                            <th>
+                                Скважина
+                            </th>
+                            <th>
+                                Куст
+                            </th>
+                            <th>
+                                Буровая
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Customer)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Contractor)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Well)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cluster)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Drilling)
+                            </td>
+                            <td>
+                            <td>
+                                <a asp-page="./Edit" asp-route-id="@item.Id">Редактировать</a> |
+                                <a asp-page="./Details" asp-route-id="@item.Id">Подробнее</a> |
+                                <a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>
+@*-------------------*@
+<p>
+    <a asp-page="Create">Добавить новый</a>
+</p>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Станок
+            </th>
+            <th>
+                Заказчик
+            </th>
+            <th>
+                Подрядчик
+            </th>
+            <th>
+                Скважина
+            </th>
+            <th>
+                Куст
+            </th>
+            <th>
+                Буровая
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Machine)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contractor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Well)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cluster)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Drilling)
+                </td>
+                <td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Редактировать</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Подробнее</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

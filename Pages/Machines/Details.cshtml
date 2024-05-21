@@ -1,0 +1,79 @@
+﻿@page
+@model GeoDart.Pages.Machines.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Machine</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Machine.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Machine.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Machine.Customer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Machine.Customer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Machine.Contractor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Machine.Contractor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Machine.Well)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Machine.Well)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Machine.Cluster)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Machine.Cluster)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Machine.Drilling)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Machine.Drilling)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Machine.WaterPressurte)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Machine.WaterPressurte)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Machine.WaterConsumption)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Machine.WaterConsumption)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Machine.FeedIn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Machine.FeedIn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Machine.FeedOut)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Machine.FeedOut)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Machine?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

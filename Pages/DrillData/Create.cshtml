@@ -1,0 +1,59 @@
+﻿@page
+@model GeoDart.Pages.DrillData.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>DrillingData</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DrillingData.DateTime" class="control-label"></label>
+                <input asp-for="DrillingData.DateTime" class="form-control" />
+                <span asp-validation-for="DrillingData.DateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DrillingData.WaterPressurte" class="control-label"></label>
+                <input asp-for="DrillingData.WaterPressurte" class="form-control" />
+                <span asp-validation-for="DrillingData.WaterPressurte" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DrillingData.WaterConsumption" class="control-label"></label>
+                <input asp-for="DrillingData.WaterConsumption" class="form-control" />
+                <span asp-validation-for="DrillingData.WaterConsumption" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DrillingData.FeedIn" class="control-label"></label>
+                <input asp-for="DrillingData.FeedIn" class="form-control" />
+                <span asp-validation-for="DrillingData.FeedIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DrillingData.FeedOut" class="control-label"></label>
+                <input asp-for="DrillingData.FeedOut" class="form-control" />
+                <span asp-validation-for="DrillingData.FeedOut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DrillingData.Temperature" class="control-label"></label>
+                <input asp-for="DrillingData.Temperature" class="form-control" />
+                <span asp-validation-for="DrillingData.Temperature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
